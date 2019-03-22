@@ -31,7 +31,7 @@ namespace LambdaWithEvents
             
 
             Console.WriteLine();
-            Console.WriteLine("Click!");
+            Console.WriteLine("Click! on continue...");
             Console.ReadLine();
         }
     }
