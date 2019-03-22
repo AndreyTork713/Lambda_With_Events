@@ -23,10 +23,10 @@ namespace LambdaWithEvents
         //********** Методы для добавления (Put) и снятия (Withdraw) средств со счета **********
         public void Put(int sum)
         {
-            _sum += sum;
-            if (Added != null)
+            _sum += sum;//Когда происходит внесение средств на счет - возникает событие Added**
+            if (Added != null)//Проверка: Added должен ссылаться на конкретный (не NULL), в данном случае анонимный метод
             {
-                Added(this,new AccountEventArgs($"На счет поступило: {sum}",sum));
+                Added(this,new AccountEventArgs($"На счет поступило: {sum}",sum));//Событие Added**
                 Console.WriteLine($"Остаток средств на счете: {_sum}");
             }
         }
@@ -34,10 +34,10 @@ namespace LambdaWithEvents
         {
             if (_sum >= sum)
             {
-                _sum += sum;
-                if (WithdrawN != null)
+                _sum += sum; //Когда происходит снятие средств со счета - возникает событие WithdrawN***
+                if (WithdrawN != null)//Проверка: WithdrawN должен ссылаться на конкретный (не NULL), в данном случае анонимный метод
                 {
-                    WithdrawN(this, new AccountEventArgs($"Со счета снято: {sum}", sum));
+                    WithdrawN(this, new AccountEventArgs($"Со счета снято: {sum}", sum));//Событие WithdrawN***
                     Console.WriteLine($"Остаток средств на счете: {_sum}");
                 }
             }
